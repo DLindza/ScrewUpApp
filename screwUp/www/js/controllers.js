@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AdvisorCtrl', function($scope) {})
+.controller('AdviserCtrl', function($scope) {})
 
 .controller('CalculatorCtrl', function($scope) {
   $scope.post = {
@@ -20,7 +20,9 @@ angular.module('starter.controllers', [])
   var percent;
   var post = $scope.post;
 
-  $scope.calculate = function() {
+
+
+  $scope.calculate = function($scope) {
    percentAge = timeToGoal - (goalAge - age);
    percent = Math.round(percentAge/timeToGoal);
    retirementGoal = Math.round(percent * salary);
@@ -32,19 +34,25 @@ angular.module('starter.controllers', [])
     goalIsMet();
   };
 
-   var goalIsMet = function() {
+  var goalIsMet = function() {
     if (retirementGoal >= retirement) {
-      // go to congrats page
+      $state.go(calculator-congratsDetail);
       // sysout - you are retirementDiff over your goal! Great Job!
     } else {
-      // go to screwUp page
+      $state.go(calculator-screwUpDetail);
       // sysout - you are retirementDiff under your goal! Great Job!
     }
-  }
+  };
+
+
 
 })
 
-.controller('CalcDetailCtrl', function($scope, $stateParams, Chats) {
+.controller('CongratsCtrl', function($scope, $stateParams, Chats) {
+  $scope.chat = Chats.get($stateParams.chatId);
+})
+
+.controller('ScrewUpCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
 

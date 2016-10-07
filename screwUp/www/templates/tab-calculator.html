@@ -1,27 +1,36 @@
-<ion-view view-title="Are you a ScrewUp?">
-  <ion-content class="padding">
-    <div class="list">
-      <div class="item item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="enter your age" ng-model="post.age"/>
-        </label>
-       </div>
-      <div class="item item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="enter desired salary at age 35" ng-model="post.salary"/>
-        </label>
+ <ion-view view-title="Are you a ScrewUp?">
+    <ion-nav-title>
+      <p> Are you a <img src="../img/ScrewUpLogo.jpg" height="40" width="90"/> ? </p>
+    </ion-nav-title>
+    <ion-content class="padding">
+      <div class="list">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="enter your age" ng-model="post.age"/>
+          </label>
+        </div>
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="enter desired salary at age 35" ng-model="post.salary"/>
+          </label>
+        </div>
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="text" placeholder="enter how much you've currently saved for retirement"
+                   ng-model="post.retirement"/>
+          </label>
+        </div>
+        <div class="item item-input-inset">
+          <button class="button button-block button-calm" on-tap="calculate()">
+            Find Out!
+          </button>
+        </div>
       </div>
-      <div class="item item-input-inset">
-        <label class="item-input-wrapper">
-          <input type="text" placeholder="enter how much you've currently saved for retirement"
-                 ng-model="post.retirement"/>
-        </label>
-        <button class="button button-small" on-tap="calculate()">
-          Submit
-        </button>
-      </div>
-    </div>
 
 
-  </ion-content>
-</ion-view>
+    </ion-content>
+  </ion-view>
+
+
+
+

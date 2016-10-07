@@ -69,17 +69,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/calculator-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
-  .state('tab.calculator', {
+  .state('tab.calculator',  {
     url: '/calculator',
     views: {
       'tab-calculator': {
@@ -87,7 +77,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'CalculatorCtrl'
       }
     }
-  });
+  })
+  .state('calculator-congratsDetail', {
+    url: '/calculator/:congratsDetail',
+    views: {
+       'calculator-congratsDetail': {
+        templateUrl: 'templates/calculator-congratsDetail.html',
+        controller: 'CongratsCtrl'
+      }
+    }
+  })
+  .state('calculator-screwUpDetail', {
+    url: '/calculator/:screwUpDetail',
+    views: {
+      'calculator-screwUpDetail': {
+        templateUrl: 'templates/calculator-screwUpDetail.html',
+        controller: 'ScrewUpCtrl'
+      }
+    }
+  })
+  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/calculator');
