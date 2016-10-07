@@ -1,9 +1,27 @@
 <ion-view view-title="Are you a ScrewUp?">
-  <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
+  <ion-content class="padding">
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="enter your age" ng-model="post.age"/>
+        </label>
+       </div>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="enter desired salary at age 35" ng-model="post.salary"/>
+        </label>
+      </div>
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="enter how much you've currently saved for retirement"
+                 ng-model="post.retirement"/>
+        </label>
+        <button class="button button-small" on-tap="calculate()">
+          Submit
+        </button>
+      </div>
+    </div>
+
+
   </ion-content>
 </ion-view>
