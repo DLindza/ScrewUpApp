@@ -33,6 +33,7 @@ angular.module('starter.controllers', [])
 
   $scope.message = '';
   $scope.heading = '';
+  $scope.image = '';
 
   var goalAge = 35;
   var timeToGoal = 17;
@@ -60,16 +61,18 @@ angular.module('starter.controllers', [])
     if (retirementGoal <= $scope.post.retirement) {
       //$location.path("/calculator-congratsDetail.html");
       // sysout - you are retirementDiff over your goal! Great Job!
-      $scope.heading = "Congrats! You're already a ScrewUp! "
-      $scope.message = " Meaning you are doing a great job of preparing for your future! You are $" + retirementDiff + " above your goal! Check out Become a financial genius for more information."
+      $scope.heading = "Congrats! You're already a ScrewUp! ";
+      $scope.message = " Meaning you are doing a great job of preparing for your future! You are $" + retirementDiff + " above your goal! Check out Become a financial genius for more information.";
+      $scope.image = "../img/party-clip-art-party-clip-art-free-downloads.jpg";
 
     } else {
       //$location.path("/calculator-screwUpDetail.html");
       // sysout - you are retirementDiff under your goal! Great Job!
 
-      $scope.heading = "You are not a ScrewUp ... yet!"
-      $scope.message = "  There is still hope for you! You are currently $" + retirementDiff + " away from the goal. Did you know by age 35 you should have a year of your desired salary saved for retirement? It IS possible!!! Money actually can grow on trees - even if you don't think you have " +
-        "money to spare!! Check out Become a financial genius for more details."
+      $scope.heading = "You are not a ScrewUp ... yet!";
+      $scope.message = "  There is still hope for you! You are currently $" + retirementDiff + " away from the goal. \n Did you know by age 35 you should have a year of your desired salary saved for retirement? It IS possible!!! Money actually can grow on trees - even if you don't think you have " +
+        "money to spare!! Check out 'Be a Financial Genius' for more details.";
+      $scope.image = "../img/notthereyet.jpg";
     }
   };
 
