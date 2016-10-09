@@ -2,3 +2,9 @@
 body {
   background: url(../img/tealblackplaid.jpg);
 }
+
+ion-content {
+  background: url(../img/tealblackplaid.jpg);
+}
+
+

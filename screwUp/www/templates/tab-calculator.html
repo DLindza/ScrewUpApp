@@ -1,8 +1,16 @@
  <ion-view view-title="Are you a ScrewUp?">
-    <ion-nav-title>
+
+  <!--<base href="/tab/calculator/index.html" >-->
+
+
+   <ion-nav-title>
       <p> Are you a <img src="../img/ScrewUpLogo.jpg" height="40" width="90"/> ? </p>
     </ion-nav-title>
-    <ion-content class="padding">
+   <!--<div ng-controller="LocationController">-->
+     <!--<input type="text" ng-model="locationPath" ng-model-options="{ getterSetter: true }" />-->
+   <!--</div>-->
+
+   <ion-content class="padding">
       <div class="list">
         <div class="item item-input-inset">
           <label class="item-input-wrapper">
@@ -11,12 +19,12 @@
         </div>
         <div class="item item-input-inset">
           <label class="item-input-wrapper">
-            <input type="text" placeholder="enter desired salary at age 35" ng-model="post.salary"/>
+            <input type="text" placeholder="enter desired salary" ng-model="post.salary"/>
           </label>
         </div>
         <div class="item item-input-inset">
           <label class="item-input-wrapper">
-            <input type="text" placeholder="enter how much you've currently saved for retirement"
+            <input type="text" placeholder="enter retirement amt"
                    ng-model="post.retirement"/>
           </label>
         </div>
@@ -26,6 +34,15 @@
           </button>
         </div>
       </div>
+
+     <div class="card">
+       <div class="item item-divider">
+         {{heading}}
+       </div>
+       <div class="item item-text-wrap">
+         {{message}}
+       </div>
+     </div>
 
 
     </ion-content>

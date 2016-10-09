@@ -5,7 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','ui.router'])
+
+  //ADDED UI ROUTER DEPENDENCY
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,7 +25,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+
+ // $locationProvider.html5Mode(true).hashPrefix();
+
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -79,20 +84,20 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
   .state('calculator-congratsDetail', {
-    url: '/calculator/:congratsDetail',
+    url: '/calculator/congrats',
     views: {
        'calculator-congratsDetail': {
         templateUrl: 'templates/calculator-congratsDetail.html',
-        controller: 'CongratsCtrl'
+       // controller: 'CongratsCtrl'
       }
     }
   })
   .state('calculator-screwUpDetail', {
-    url: '/calculator/:screwUpDetail',
+    url: '/calculator/screwUp',
     views: {
       'calculator-screwUpDetail': {
         templateUrl: 'templates/calculator-screwUpDetail.html',
-        controller: 'ScrewUpCtrl'
+        //controller: 'ScrewUpCtrl'
       }
     }
   })
