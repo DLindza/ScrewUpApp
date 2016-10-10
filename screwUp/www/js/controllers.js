@@ -38,7 +38,7 @@ angular.module('starter.controllers', [])
   var goalAge = 35;
   var timeToGoal = 17;
   var retirementGoal;
-  var retirementDiff;
+  $scope.retirementDiff;
   var percentAge;
   var percent;
 
@@ -57,7 +57,6 @@ angular.module('starter.controllers', [])
   //
   // $scope.goalIsMet = function() {
 
-    /// instead of sending them to different pages - send them to one page that has different attributes depending on the outcome...#roberto'd
     if (retirementGoal <= $scope.post.retirement) {
       //$location.path("/calculator-congratsDetail.html");
       // sysout - you are retirementDiff over your goal! Great Job!
@@ -70,7 +69,7 @@ angular.module('starter.controllers', [])
       // sysout - you are retirementDiff under your goal! Great Job!
 
       $scope.heading = "You are not a ScrewUp ... yet!";
-      $scope.message = "  There is still hope for you! You are currently $" + retirementDiff + " away from the goal. \n Did you know by age 35 you should have a year of your desired salary saved for retirement? It IS possible!!! Money actually can grow on trees - even if you don't think you have " +
+      $scope.message = "  There is still hope for you! You are currently $" + retirementDiff + " away from the goal. Did you know by age 35 you should have a year of your desired salary saved for retirement? It IS possible!!! Money actually can grow on trees - even if you don't think you have " +
         "money to spare!! Check out 'Be a Financial Genius' for more details.";
       $scope.image = "../img/notthereyet.jpg";
     }
@@ -88,9 +87,36 @@ angular.module('starter.controllers', [])
   //$scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('TermsCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('TermsCtrl', function($scope, $http, $ionicModal) {
+    $scope.terms = [];
+    // $scope.description = getDescription();
+
+    $http.get('/terms.json')
+      .then(function(response) {
+        $scope.terms = response.data;
+      })
+
+
+    $ionicModal.fromTemplateUrl('templates/modal.html', {
+      scope: $scope
+    }). then(function(modal) {
+      $scope.modal = modal;
+    });
+
+    $scope.openModal = function(term) {
+      $scope.modal.show();
+    };
+
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+
+
+
+
 })
+
 
 .controller('ResourcesCtrl', function($scope) {
   $scope.settings = {

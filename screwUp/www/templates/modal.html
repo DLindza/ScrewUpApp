@@ -1,0 +1,13 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title"> Financial terms </h1>
+    <button class="button button-clear button-primary"
+            on-tap="closeModal()">Cancel</button>
+  </ion-header-bar>
+
+  <ion-content class="padding" ng-repeat="term in terms" href="#/app/tab-terms/{{term.id}}">
+    <ion-item>
+          {{term.description}}
+        </ion-item>
+    </ion-content>
+ </ion-modal-view>
