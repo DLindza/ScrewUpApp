@@ -8,7 +8,10 @@ ion-content {
 }
 
 img {
+  /*display: block;*/
   display: inline-block;
+  margin: auto;
 }
+
 
 

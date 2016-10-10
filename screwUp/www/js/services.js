@@ -1,5 +1,13 @@
 angular.module('starter.services', [])
 
+// var xhr = new XMLHttpRequest();
+//  xhr.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/output?key=AIzaSyDVSJzZK-utBPG9zpnmBVD8FGTS9HA4p3s HTTP/1.1" );
+//
+// xhr.send();
+// console.log(xhr.status);
+// console.log(xhr.statusText);
+
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 

@@ -15,8 +15,8 @@
           <!--Sam-->
         <!--</a>-->
       <!--</ion-list>-->
-      <ion-list ng-repeat="term in terms" href="#/app/tab-terms/{{term.id}}">
-        <ion-item  on-tap="openModal(term)">
+      <ion-list >
+        <ion-item ng-repeat="term in terms" href="#/tab/modal/{{term.id}}">
           <div>{{term.name}}</div>
         </ion-item>
       </ion-list>

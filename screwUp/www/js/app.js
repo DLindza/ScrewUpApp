@@ -37,7 +37,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','u
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
@@ -64,6 +64,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','u
       }
     }
   })
+
+  .state('tab.modal', {
+    url: '/modal/:termid',
+    views: {
+      'tab-terms': {
+        templateUrl: 'templates/modal.html',
+        controller: 'ModalCtrl'
+      }
+    }
+  })
+
+
 
   .state('tab.resources', {
       url: '/resources',
