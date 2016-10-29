@@ -111,7 +111,7 @@ var options = {timeout: 10000, enableHighAccuracy: true};
                 });
 
                 var infoWindow = new google.maps.InfoWindow({
-                    content: "Here I am!"
+                    content: "Here I am! Number One Financial Advisor - 1105 N. Market Street Wilmington, DE  - Call me at 1-800-SCREWUP"
                 });
 
                 google.maps.event.addListener(marker, 'click', function () {

@@ -1,20 +1,5 @@
 <ion-view view-title="ScrewUp Your Knowledge">
-    <!--<ion-nav-buttons side="right">-->
-      <!--<button class="button button-clear icon ion-more" on-tap="openPopover($event)"></button>-->
-    <!--</ion-nav-buttons>-->
     <ion-content>
-
-      <!--<ion-list>-->
-        <!--<a ion-item (click)="openModal({charNum: 0})">-->
-          <!--Gollum-->
-        <!--</a>-->
-        <!--<a ion-item (click)="openModal({charNum: 1})">-->
-          <!--Frodo Baggins-->
-        <!--</a>-->
-        <!--<a ion-item (click)="openModal({charNum: 2})">-->
-          <!--Sam-->
-        <!--</a>-->
-      <!--</ion-list>-->
       <ion-list >
         <ion-item ng-repeat="term in terms" href="#/tab/modal/{{term.id}}">
           <div>{{term.name}}</div>
