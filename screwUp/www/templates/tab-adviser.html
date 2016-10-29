@@ -1,6 +1,18 @@
-<ion-view view-title="Find A Financial Adviser Near You">
-  <ion-content class="padding">
-    <div class="list">
+<style>
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  height: 100%;
+}   
+</style>
+
+<ion-view view title="Find A Financial Advisor">
+  
+  <ion-content>
+    <!--<div class="list">
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
           <input type="text" placeholder="enter your address" ng-model="location.address"/>
@@ -10,7 +22,7 @@
         <button class="button button-block button-calm" on-tap="calculate()">
           Find Help Near You!
         </button>
-      </div>
+      </div>-->
 
       <div id="map" data-tap-disabled="true"></div>
 
