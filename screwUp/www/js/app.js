@@ -11,8 +11,9 @@
  angular
    .module('screwUpApp', [
      'ionic', 
-     'screwUpApp.controllers', 
+     //'screwUpApp.controllers', 
      'screwUpApp.services',
+     'calculator',
      'ui.router'
    ])
 
