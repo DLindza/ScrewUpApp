@@ -13,7 +13,8 @@
      'ionic', 
      'screwUpApp.controllers', 
      'screwUpApp.services',
-     'ui.router'
+     'ui.router',
+     'ngCordova'
    ])
 
 
