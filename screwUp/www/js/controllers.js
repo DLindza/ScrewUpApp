@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('screwUpApp.controllers', [])
 
 .service('getTerms', function () {
    // var terms = [];

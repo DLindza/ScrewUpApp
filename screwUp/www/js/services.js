@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('screwUpApp.services', [])
 
 // var xhr = new XMLHttpRequest();
 //  xhr.open("GET", "https://maps.googleapis.com/maps/api/place/nearbysearch/output?key=AIzaSyDVSJzZK-utBPG9zpnmBVD8FGTS9HA4p3s HTTP/1.1" );
