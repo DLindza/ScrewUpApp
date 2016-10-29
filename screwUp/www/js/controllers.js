@@ -76,7 +76,7 @@ angular.module('screwUpApp.controllers', [])
 
 })
 
-.controller('AdviserCtrl', function($scope, $http) {
+.controller('AdviserCtrl', function($scope, $state, $cordovaGeolocation) {
   // $scope.location = {
   //   address: '',
   // };
