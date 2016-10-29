@@ -77,26 +77,23 @@ angular.module('screwUpApp.controllers', [])
 })
 
 .controller('AdviserCtrl', function($scope, $state, $cordovaGeolocation) {
-  // $scope.location = {
-  //   address: '',
-  // };
-  //
-  // $scope.getData = function() {
-  //   $http.get("https://maps.googleapis.com/maps/api/place/nearbysearch/output?parameters,
-  //     { params: {
-  //     "key": "AIzaSyDVSJzZK-utBPG9zpnmBVD8FDTS9HA4p3s",
-  //     "location": $scope.location.address,
-  //     "keyword": "financial advisers",
-  //     "rankby" : "prominence"} })
-  //     .success(function(data) {
-  //       $scope.firstname = data.firstname;
-  //       $scope.lastname = data.lastname;
-  //     })
-  //     .error(function(data) {
-  //       alert("ERROR");
-  //     });
-  // }
-
+var options = {timeout: 10000, enableHighAccuracy: true};
+ 
+  $cordovaGeolocation.getCurrentPosition(options).then(function(position){
+ 
+    var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+ 
+    var mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+ 
+    $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+ 
+  }, function(error){
+    console.log("Could not get location");
+  });
 })
 
 
