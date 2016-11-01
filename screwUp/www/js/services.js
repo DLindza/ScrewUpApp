@@ -78,34 +78,47 @@ angular.module('screwUpApp.services', [])
 
 .service('budgetService', function() {
   var expenses = [];
-  var billtotal =0; 
-  var monthlyNet; 
-  var billgoal; 
-  var monthlyremainder;
-  var funmoney;
-  var nestegg;
-  var billPercent; 
+  var billtotal = 0; 
+  var monthlyNet = 0; 
+  var billgoal = 0; 
+  var monthlyremainder = 0;
+  var funmoney = 0;
+  var nestegg = 0;
+  var billPercent = 0; 
 
   var findMonthlyNet = function (paycheck, occurence) {
     monthlyNet= parseInt(paycheck) * parseInt(occurence);  
     console.log("Monthly Net: " + monthlyNet);
+    fillBudget();
+  };
+
+  var fillBudget = function() {
+    findBillGoal();
+    console.log("billgoal: " + billgoal);
+    console.log("billtotal: " + billtotal);
+    findBillPercent();
+    findMonthlyRemainder();
+    findNestEgg();
+    findFunMoney();
   };
 
   var findBillPercent = function() {
-    billPercent = billtotal/billgoal;
+    billPercent = parseInt(billgoal/billPercent);
+
   }
 
   var addExpense = function(cost) {
     billtotal += parseInt(cost); 
-    console.log(billtotal);
+    console.log("billtotal:" + billtotal);
   };
   
   var findBillGoal = function() {
-    billgoal = monthlynet/2; 
+    billgoal = monthlyNet/2;
+    console.log("Bill goal:" + billgoal); 
   };
 
   var findMonthlyRemainder = function() {
-    monthlyremainder = monthlynet - $scope.post.billtotal; 
+    monthlyremainder = monthlyNet - billtotal; 
   };
 
   var findFunMoney = function() {
@@ -117,10 +130,12 @@ angular.module('screwUpApp.services', [])
   };
 
   var getBillPercent= function() {
+    console.log("I am the percent getter"); 
     return this.billPercent;
   }
   var getBillTotal = function() {
-     return this.billtotal; 
+    console.log("I am the bill getter");
+     return billtotal; 
   };
 
   var getMonthlyNet = function() {
@@ -131,11 +146,14 @@ angular.module('screwUpApp.services', [])
     return this.billgoal; 
   }
 
-  var getMonthlyRemainder = function() {return this.monthlyremainder;}; 
+  var getMonthlyRemainder = function() {
+    console.log("I am the remainder getter"); 
+    return this.monthlyremainder;
+  } 
 
   var getFunMoney = function(){return this.funmoney; };
 
-  var getNestEgg = function(){return this.nestegg}; 
+  var getNestEgg = function(){return this.nestegg; }; 
 
 
   return {
@@ -149,7 +167,8 @@ angular.module('screwUpApp.services', [])
     getMonthlyRemainder : getMonthlyRemainder,
     findFunMoney : findFunMoney,
     getFunMoney :getFunMoney,
-    findNestEgg : getNestEgg,
+    findNestEgg : findNestEgg,
+    getNestEgg: getNestEgg,
     findBillPercent : findBillPercent,
     getBillPercent : getBillPercent
   };
