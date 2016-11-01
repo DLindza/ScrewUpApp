@@ -131,7 +131,7 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
      $scope.callToAddBudgetInfo= function() {
         budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurence);
-        // $scope.toOutcome(); 
+        $scope.toOutcome(); 
         
      }
 
@@ -141,11 +141,22 @@ var options = {timeout: 10000, enableHighAccuracy: true};
   
 })
 
-.controller('OutcomeCtrl', function($scope){
+.controller('OutcomeCtrl', function($scope,$state, budgetService){
+ var outcomeVM = this; 
 
-  $scope.message = '';
-  $scope.heading = '';
-  $scope.image = '';
+ outcomeVM.billtotal = function() {budgetService.getBillTotal();} 
+ outcomeVM.billgoal = function() {budgetService.getBillGoal();}
+ outcomeVM.billpercent = function() {budgetService.getBillPercent();}
+ outcomeVM.monthlyremainder = function() {budgetService.getMonthlyRemainder();}
+ outcomeVM.funmoney = function() {budgetService.getFunMoney();}
+ outcomeVM.nestegg = function() {budgetService.getNestEgg();}
+ 
+
+ $scope.toHome = function() {
+       console.log("show me the money!");
+       $state.transitionTo('tab.calculator');
+     }
+  
 })
 
 

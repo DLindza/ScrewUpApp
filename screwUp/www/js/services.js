@@ -83,12 +83,17 @@ angular.module('screwUpApp.services', [])
   var billgoal; 
   var monthlyremainder;
   var funmoney;
-  var nestegg; 
+  var nestegg;
+  var billPercent; 
 
   var findMonthlyNet = function (paycheck, occurence) {
     monthlyNet= parseInt(paycheck) * parseInt(occurence);  
     console.log("Monthly Net: " + monthlyNet);
   };
+
+  var findBillPercent = function() {
+    billPercent = billtotal/billgoal;
+  }
 
   var addExpense = function(cost) {
     billtotal += parseInt(cost); 
@@ -111,6 +116,9 @@ angular.module('screwUpApp.services', [])
     nestegg= monthlyremainder * .30; 
   };
 
+  var getBillPercent= function() {
+    return this.billPercent;
+  }
   var getBillTotal = function() {
      return this.billtotal; 
   };
@@ -141,7 +149,9 @@ angular.module('screwUpApp.services', [])
     getMonthlyRemainder : getMonthlyRemainder,
     findFunMoney : findFunMoney,
     getFunMoney :getFunMoney,
-    findNestEgg : getNestEgg
+    findNestEgg : getNestEgg,
+    findBillPercent : findBillPercent,
+    getBillPercent : getBillPercent
   };
 
 

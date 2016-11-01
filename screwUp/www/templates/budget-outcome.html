@@ -4,9 +4,29 @@
 
 <div class="card">
   <div class="item item-text-wrap">
-    This is a basic Card which contains an item that has wrapping text.
+    You're Currently Spending : {{outcomeVM.billtotal}}
+
+    This is {{outcomeVM.billpercent}} of your net monthly income. 
+
+    You're goal should be to be spending 50% or {{outcomeVM.billgoal}}.
   </div>
 </div>
+
+<div class="card">
+  <div class="item item-text-wrap">
+     You have {{outcomeVM.monthlyremainder}} left for the month.
+
+     Your goal should be to use 20% or {{outcomeVM.nestegg}} toward debt reduction or building a nest egg.
+
+     The other 30%  -- {{outcomeVM.funmoney}} - is yours to spend as you wish! Live it up!
+  </div>
+</div>
+
+  <div class="item item-input-inset">
+      <button class="button button-block button-calm" on-tap="toHome()">
+      Go Home
+      </button>
+  </div>
 
 </ion-content>
 
