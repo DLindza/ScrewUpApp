@@ -66,13 +66,19 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
   var goalAge = 35;
   var timeToGoal = 17;
-  var retirementGoal;
+  var retirementGoal ;
+  //= calculatorService.getRetirementGoal();
   $scope.retirementDiff;
+  // = calculatorService.getRetirementDiff();
   var percentAge;
+  // = calculatorService.getPercentAge();
   var percent;
+  // = calculatorService;
+
 
 
   $scope.calculate = function() {
+    //calculatorService.runCalculation();
    percentAge = timeToGoal - (goalAge - $scope.post.age);
    percent = percentAge/timeToGoal;
    retirementGoal = Math.round(percent * $scope.post.salary);
