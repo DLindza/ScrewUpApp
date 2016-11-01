@@ -116,26 +116,28 @@ var options = {timeout: 10000, enableHighAccuracy: true};
     paycheck: '',
     occurence: ''
    
-  };
+  }
 
     $scope.expense = {
       name: '',
       cost: ''
-    };
+    }
    
-     $scope.toOutcome = function($scope, $state) {
-       $state.transitionTo('budget-outcome')
-     };
+     $scope.toOutcome = function() {
+       console.log("show me the money!");
+       $state.transitionTo('budget-outcome');
+      
+     }
 
      $scope.callToAddBudgetInfo= function() {
         budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurence);
-        $scope.toOutcome; 
-     }; 
+        // $scope.toOutcome(); 
+        
+     }
 
      $scope.callToAddExpense= function() {
-       budgetService.addExpense($scope.expense.cost); 
-       console.log($scope.expense.cost);
-     };
+       budgetService.addExpense($scope.expense.cost);
+     }
   
 })
 

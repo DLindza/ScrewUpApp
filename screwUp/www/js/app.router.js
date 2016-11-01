@@ -72,13 +72,11 @@ angular
       }
     })
     .state('budget-outcome', {
-      url: '/mybudget',
-      views: {
-        'budget-outcome': {
-          templateUrl: 'templates/budget-outcome.html',
-          controller: 'BudgetCtrl'
-        }
-      }
+      url: '/budget-outcome',
+      templateUrl: 'templates/budget-outcome.html',
+      controller: 'OutcomeCtrl'
+        
+      
     })
   ;
 

@@ -87,6 +87,7 @@ angular.module('screwUpApp.services', [])
 
   var findMonthlyNet = function (paycheck, occurence) {
     monthlyNet= parseInt(paycheck) * parseInt(occurence);  
+    console.log("Monthly Net: " + monthlyNet);
   };
 
   var addExpense = function(cost) {
