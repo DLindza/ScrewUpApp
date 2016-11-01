@@ -4,7 +4,7 @@ Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
-  <!-- Dashboard Tab -->
+  <!-- calculator Tab -->
   <ion-tab title="ScrewUp Calc" icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/calculator">
     <ion-nav-view name="tab-calculator"></ion-nav-view>
   </ion-tab>
@@ -14,15 +14,21 @@ navigation history that also transitions its views in and out.
     <ion-nav-view name="tab-terms"></ion-nav-view>
   </ion-tab>
 
-  <!-- Chats Tab -->
+  <!-- Resources Tab -->
   <ion-tab title="Resources" icon-off="ion-ios-book-outline" icon-on="ion-ios-book" href="#/tab/resources">
     <ion-nav-view name="tab-resources"></ion-nav-view>
   </ion-tab>
 
-  <!-- Account Tab -->
+  <!-- Budget Tab -->
+  <ion-tab title="Budget" icon-off="ion-social-usd-outline" icon-on="ion-social-usd" href="#/tab/budget">
+    <ion-nav-view name="tab-budget"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Map Tab -->
   <ion-tab title="Find Help" icon-off="ion-social-usd-outline" icon-on="ion-social-usd" href="#/tab/adviser">
     <ion-nav-view name="tab-adviser"></ion-nav-view>
   </ion-tab>
 
+  
 
 </ion-tabs>

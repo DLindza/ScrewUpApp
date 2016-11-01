@@ -125,6 +125,9 @@ var options = {timeout: 10000, enableHighAccuracy: true};
   });
 })
 
+.controller('BudgetCtrl', function($scope){
+
+})
 
 .controller('CalculatorCtrl', function($scope,$location) {
   $scope.post = {
@@ -181,13 +184,7 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 })
 
-.controller('CongratsCtrl', function($scope, $stateParams) {
- // $scope.chat = Chats.get($stateParams.chatId);
-})
 
-.controller('ScrewUpCtrl', function($scope, $stateParams) {
-  //$scope.chat = Chats.get($stateParams.chatId);
-})
 
 .controller('TermsCtrl', function($scope, $stateParams, $http, getTerms) {
 

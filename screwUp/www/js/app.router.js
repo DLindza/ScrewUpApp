@@ -62,6 +62,24 @@ angular
       }
     }
   })
+   .state('tab.budget', {
+      url: '/budget',
+      views: {
+        'tab-budget': {
+          templateUrl: 'templates/tab-budget.html',
+          controller: 'BudgetCtrl'
+        }
+      }
+    })
+    .state('budget-outcome', {
+      url: '/mybudget',
+      views: {
+        'budget-outcome': {
+          templateUrl: 'templates/budget-outcome.html',
+          controller: 'BudgetCtrl'
+        }
+      }
+    })
   ;
 
   // if none of the above states are matched, use this as the fallback
