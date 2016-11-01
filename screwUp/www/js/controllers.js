@@ -190,36 +190,10 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
   $scope.terms = getTerms.terms;
 
-  // $http.get('/terms.json')
-  //   .then(function (response) {
-  //     $scope.terms = response.data;
-  //     getTerms.terms = response.data;
-  //     console.log(getTerms.terms);
-  //   })
-
-    // $scope.terms = getTerms.terms;
-
-    // $ionicModal.fromTemplateUrl('templates/modal.html', {
-    //   scope: $scope
-    // }). then(function(modal) {
-    //   $scope.modal = modal;
-    // });
-    //
-    // $scope.openModal = function(term) {
-    //   $scope.modal.show();
-    // };
-    //
-    // $scope.closeModal = function() {
-    //   $scope.modal.hide();
-    // };
 })
 
 .controller('ModalCtrl', function($scope, $stateParams,getTerms, $ionicHistory ) {
   $scope.term = getTerms.terms[$stateParams.termid-1];
-
-  // $scope.myGoBack = function() {
-  //     $ionicHistory.goBack();
-  //   };
 
 
 })
