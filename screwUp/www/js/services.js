@@ -114,7 +114,6 @@ angular.module('screwUpApp.services', [])
 
   var findMonthlyRemainder = function() {
     monthlyremainder = monthlyNet - billtotal; 
-    console.log(monthlyremainder);
   };
 
   var findFunMoney = function() {
@@ -123,6 +122,7 @@ angular.module('screwUpApp.services', [])
 
   var findNestEgg = function() {
     nestegg= monthlyremainder * .30; 
+   
   };
 
   var getBillPercent= function() {

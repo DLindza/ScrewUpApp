@@ -1,0 +1,35 @@
+  <ion-view view-title="Become A ScrewUp!">
+    <ion-content>
+        <div class="list card">
+             
+  
+         <label class="item item-input">
+                <input type="text" placeholder="Enter current paycheck amt"  ng-model="user.paycheck">
+            </label>
+            <label class="item item-input" >
+                <input type="text" placeholder="How many times in 4 weeks do you get paid?" ng-model="user.occurrence">
+            </label>
+        <label class="item">
+                Add All Non-Negotiable Monthly Expenses Here (i.e. rent)
+             </label>
+             <label class="item item-input" >
+                <input type="text" placeholder="Enter Name of Expense" ng-model="expense.name">
+            </label>
+            <label class="item item-input" >
+                <input type="text" placeholder="Enter amt of Expense" ng-model="expense.cost">
+            </label>
+              <div class="item item-input-inset">
+                    <button class="button button-block button-calm" on-tap="callToAddExpense()">
+                        Add Monthly Expense
+                    </button>
+             </div>
+               <div class="item item-input-inset">
+                    <button class="button button-block button-calm" on-tap="callToAddBudgetInfo()">
+                       Submit
+                    </button>
+             </div>
+
+        </div>
+    </ion-content>
+  </ion-view>
+

@@ -22,6 +22,12 @@ angular
   controller: 'newScrewUpCtrl'
 })
 
+.state('createAccount', {
+  url: '/createAccount',
+  templateUrl: 'templates/createAccount.html',
+  controller: 'createAccountCtrl'
+})
+
 .state('tab', {
     url: '/tab',
     abstract: true,

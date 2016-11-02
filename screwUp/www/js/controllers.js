@@ -11,11 +11,13 @@ angular.module('screwUpApp.controllers', ['screwUpApp.services'])
   }
 
   $scope.login = function() {
-    var url = 'http://localhost:8080/user/search/findByUsername?user=' + $scope.userLogin.username;
+    var url = 'http://localhost:8080/findByUsername/' + $scope.userLogin.username;
     $http.get(url)
     
     .then(function(response) {
       userService.setUser(response.data);
+      console.log(response.data.username);
+      console.log($scope.userLogin.username);
       if(response.data.username === $scope.userLogin.username && response.data.password === $scope.userLogin.password){
          $state.transitionTo("budget-outcome");
       } else {
@@ -134,6 +136,47 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 })
 
+.controller('createAccountCtrl', function($scope,$state,budgetService){
+  $scope.post = {
+    "paycheck": "",
+    "occurrence": "",
+  }
+
+   $scope.expense = {
+      "name": "",
+      "cost": ""
+    }
+
+    var clearPost = function() {
+      $scope.post.paycheck ="";
+      $scope.post.occurrence = "";
+    }
+
+    var clearExpense = function() {
+      $scope.expense.name = "";
+      $scope.expense.cost = "";
+    }
+
+       $scope.toOutcome = function() {
+       console.log("show me the money!");
+       $state.transitionTo('budget-outcome');
+      
+     }
+
+        $scope.callToAddBudgetInfo= function() {
+        budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurrence);
+        clearPost();
+        $scope.toOutcome(); 
+        
+     }
+
+
+     $scope.callToAddExpense= function() {
+       budgetService.addExpense($scope.expense.cost);
+     }
+
+})
+
 
 
 .controller('TermsCtrl', function($scope, $stateParams, $http, getTerms) {
@@ -150,16 +193,10 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 .controller('newScrewUpCtrl', function($scope, $state, $http, budgetService){
 
-    $scope.expense = {
-      name: '',
-      cost: ''
-    }
-
-    $scope.user = {
+   $scope.user = {
       "username": "",
-      "password": "",
-      "paycheck": "",
-      "occurrence": ""
+      "password": ""
+      
     }
   
   $scope.message = "",
@@ -181,22 +218,12 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 		$scope.message = "Sorry there was a server error.";
 	  }
 
-     $scope.toOutcome = function() {
-       console.log("show me the money!");
-       $state.transitionTo('budget-outcome');
-      
+     $scope.toCreateAccount = function() {
+       $scope.submitNewUser();
+       $state.transitionTo('createAccount');
      }
 
-     $scope.callToAddBudgetInfo= function() {
-        budgetService.findMonthlyNet($scope.user.paycheck, $scope.user.occurrence);
-        $scope.submitNewUser();
-        $scope.toOutcome(); 
-        
-     }
 
-     $scope.callToAddExpense= function() {
-       budgetService.addExpense($scope.expense.cost);
-     }
   
 })
 
