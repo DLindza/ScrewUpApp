@@ -1,6 +1,36 @@
 angular.module('screwUpApp.controllers', ['screwUpApp.services'])
 
+.controller('loginCtrl', function($scope,$http,$state,userService) {
+  var password = '';
+  $scope.errorMessage = '';
 
+  $scope.userLogin = {
+    "username": '',
+    "password": '',
+  }
+
+  $scope.login = function() {
+    var url = 'http://localhost:8080/user/search/findByUsername?user=' + $scope.userLogin.username;
+    $http.get(url)
+    
+    .then(function(response) {
+      userService.setUser(response.data);
+      if(response.data.username === $scope.userLogin.username && response.data.password === $scope.userLogin.password){
+         $state.transitionTo("budget-outcome");
+      } else {
+          $scope.errorMessage = "Username or Password is incorrect." 
+      }
+    }, function(response){
+      $scope.errorMessage = "This page could not load."
+    
+    })
+  }
+   
+   $scope.newScrewUp = function() {
+     $state.transitionTo("newScrewUp");
+   }
+
+})
 
 .controller('AdviserCtrl', function($scope, $state, $cordovaGeolocation) {
 var options = {timeout: 10000, enableHighAccuracy: true};
@@ -117,7 +147,7 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 })
 
-.controller('BudgetCtrl', function($scope, $state, budgetService){
+.controller('newScrewUpCtrl', function($scope, $state, budgetService){
    $scope.post = {
     paycheck: '',
     occurence: ''
@@ -164,7 +194,6 @@ var options = {timeout: 10000, enableHighAccuracy: true};
      }
   
 })
-
 
 .controller('ResourcesCtrl', function($scope) {
 

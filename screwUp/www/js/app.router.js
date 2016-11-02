@@ -9,6 +9,19 @@ angular
 
     function appRouter($stateProvider, $urlRouterProvider) {
         $stateProvider
+
+.state('login', {
+  url: '/login',
+  templateUrl: 'templates/login.html',
+  controller: 'loginCtrl'
+})
+
+.state('newScrewUp', {
+  url: '/newScrewUp',
+  templateUrl: 'templates/newScrewUp.html',
+  controller: 'newScrewUpCtrl'
+})
+
 .state('tab', {
     url: '/tab',
     abstract: true,
@@ -62,15 +75,6 @@ angular
       }
     }
   })
-   .state('tab.budget', {
-      url: '/budget',
-      views: {
-        'tab-budget': {
-          templateUrl: 'templates/tab-budget.html',
-          controller: 'BudgetCtrl'
-        }
-      }
-    })
     .state('budget-outcome', {
       url: '/budget-outcome',
       templateUrl: 'templates/budget-outcome.html',
