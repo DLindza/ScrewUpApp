@@ -1,17 +1,7 @@
 <ion-view view-title="ScrewedUp Monthly Budgeter">
     <ion-content>
         <div class="list card">
-             <label class="item item-input" >
-                <input type="text" placeholder="Enter Username" ng-model="expense.name">
-            </label>
-            <label class="item item-input" >
-                <input type="text" placeholder="Enter Password" ng-model="expense.cost">
-            </label>
-              <div class="item item-input-inset">
-                    <button class="button button-block button-calm" on-tap="">
-                        Add Monthly Expense
-                    </button>
-             </div>
+             
             <label class="item">
                 Add All Non-Negotiable Monthly Expenses Here (i.e. rent)
              </label>
@@ -26,11 +16,17 @@
                         Add Monthly Expense
                     </button>
              </div>
-             <label class="item item-input">
-                <input type="text" placeholder="Enter current paycheck amt"  ng-model="post.paycheck">
+             <label class="item item-input" >
+                <input type="text" placeholder="Create Username" ng-model="user.username">
             </label>
             <label class="item item-input" >
-                <input type="text" placeholder="How many times in 4 weeks do you get paid?" ng-model="post.occurence">
+                <input type="text" placeholder="Create Password" ng-model="user.password">
+            </label>
+             <label class="item item-input">
+                <input type="text" placeholder="Enter current paycheck amt"  ng-model="user.paycheck">
+            </label>
+            <label class="item item-input" >
+                <input type="text" placeholder="How many times in 4 weeks do you get paid?" ng-model="user.occurrence">
             </label>
              <div class="item item-input-inset">
                     <button class="button button-block button-calm" on-tap="callToAddBudgetInfo()">

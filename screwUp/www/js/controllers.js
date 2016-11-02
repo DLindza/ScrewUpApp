@@ -7,6 +7,7 @@ angular.module('screwUpApp.controllers', ['screwUpApp.services'])
   $scope.userLogin = {
     "username": '',
     "password": '',
+
   }
 
   $scope.login = function() {
@@ -147,18 +148,39 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 })
 
-.controller('newScrewUpCtrl', function($scope, $state, budgetService){
-   $scope.post = {
-    paycheck: '',
-    occurence: ''
-   
-  }
+.controller('newScrewUpCtrl', function($scope, $state, $http, budgetService){
 
     $scope.expense = {
       name: '',
       cost: ''
     }
-   
+
+    $scope.user = {
+      "username": "",
+      "password": "",
+      "paycheck": "",
+      "occurrence": ""
+    }
+  
+  $scope.message = "",
+ 
+	$scope.backToLogin = function() {
+		$state.transitionTo("login");
+	}
+
+	$scope.submitNewUser = 
+  function() {
+		console.log($scope.user);
+
+		$http.post('http://localhost:8080/user' , $scope.user)
+	    .then(function (response) {
+        $scope.message = response.data.message;
+	    })
+	  }, 
+    function() {
+		$scope.message = "Sorry there was a server error.";
+	  }
+
      $scope.toOutcome = function() {
        console.log("show me the money!");
        $state.transitionTo('budget-outcome');
@@ -166,8 +188,8 @@ var options = {timeout: 10000, enableHighAccuracy: true};
      }
 
      $scope.callToAddBudgetInfo= function() {
-        budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurence);
-        
+        budgetService.findMonthlyNet($scope.user.paycheck, $scope.user.occurrence);
+        $scope.submitNewUser();
         $scope.toOutcome(); 
         
      }
