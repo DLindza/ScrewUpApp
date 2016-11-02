@@ -170,9 +170,9 @@ var options = {timeout: 10000, enableHighAccuracy: true};
         
      }
 
-
      $scope.callToAddExpense= function() {
        budgetService.addExpense($scope.expense.cost);
+       clearExpense();
      }
 
 })
@@ -222,7 +222,8 @@ var options = {timeout: 10000, enableHighAccuracy: true};
        $scope.submitNewUser();
        $state.transitionTo('createAccount');
      }
-
+   
+   $scope.billtotal = budgetService.getBillTotal();
 
   
 })
