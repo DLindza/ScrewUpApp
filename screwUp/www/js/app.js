@@ -11,10 +11,12 @@
  angular
    .module('screwUpApp', [
      'ionic', 
-     'screwUpApp.controllers', 
+     //'screwUpApp.controllers', 
      'screwUpApp.services',
-     'ui.router',
-     'ngCordova'
+     'ngCordova',
+     'calculator',
+     'ui.router'
+
    ])
 
 

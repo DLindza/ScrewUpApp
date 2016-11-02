@@ -77,7 +77,7 @@ angular
     views: {
       'tab-calculator': {
         templateUrl: 'templates/tab-calculator.html',
-        controller: 'CalculatorCtrl'
+        controller: 'CalculatorCtrl as calcVM'
       }
     }
   })
