@@ -149,7 +149,7 @@ angular.module('screwUpApp.services', [])
   var getNestEgg = function(){return nestegg; }; 
 
 
-  return {
+  var service = {
     findMonthlyNet : findMonthlyNet,
     getMonthlyNet : getMonthlyNet,
     addExpense : addExpense,
@@ -166,7 +166,7 @@ angular.module('screwUpApp.services', [])
     getBillPercent : getBillPercent
   };
 
-
+ return service;
 })
 
 .service('calculatorService', function(){
