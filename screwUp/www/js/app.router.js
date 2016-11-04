@@ -22,10 +22,10 @@ angular
   controller: 'newScrewUpCtrl'
 })
 
-.state('createAccount', {
-  url: '/createAccount',
-  templateUrl: 'templates/createAccount.html',
-  controller: 'createAccountCtrl'
+.state('editAccount', {
+  url: '/editAccount',
+  templateUrl: 'templates/editAccount.html',
+  controller: 'editAccountCtrl'
 })
 
 .state('tab', {

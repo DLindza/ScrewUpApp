@@ -77,6 +77,9 @@ angular.module('screwUpApp.services', [])
 })
 
 .service('budgetService', function() {
+  var username = "";
+  var password = "";
+
   var expenses = [];
   var billtotal = 0; 
   var monthlyNet = 0; 

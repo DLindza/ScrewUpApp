@@ -136,7 +136,7 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 })
 
-.controller('createAccountCtrl', function($scope,$state,budgetService){
+.controller('editAccountCtrl', function($scope,$state,budgetService){
   $scope.post = {
     "paycheck": "",
     "occurrence": "",
@@ -220,7 +220,7 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
      $scope.toCreateAccount = function() {
        $scope.submitNewUser();
-       $state.transitionTo('createAccount');
+       $state.transitionTo('editAccount');
      }
    
    $scope.billtotal = budgetService.getBillTotal();
