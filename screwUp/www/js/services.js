@@ -148,7 +148,7 @@ angular.module('screwUpApp.services', [])
 
   var getNestEgg = function(){return nestegg; }; 
 
-
+// this is what gets exposed to the controller - you want to control what the controller can use/see - SOLID
   var service = {
     findMonthlyNet : findMonthlyNet,
     getMonthlyNet : getMonthlyNet,
