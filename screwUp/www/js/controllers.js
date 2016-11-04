@@ -1,6 +1,6 @@
 angular.module('screwUpApp.controllers', ['screwUpApp.services'])
 
-.controller('loginCtrl', function($scope,$http,$state,userService) {
+.controller('loginCtrl', function($scope,$http,$state,userService, budgetService) {
   var password = '';
   $scope.errorMessage = '';
 
@@ -18,11 +18,26 @@ angular.module('screwUpApp.controllers', ['screwUpApp.services'])
       userService.setUser(response.data);
       console.log(response.data.username);
       console.log($scope.userLogin.username);
+      $scope.getMonthlyFromDataBase();
       if(response.data.username === $scope.userLogin.username && response.data.password === $scope.userLogin.password){
-         $state.transitionTo("budget-outcome");
+         $state.transitionTo("budget-outcome");  
       } else {
           $scope.errorMessage = "Username or Password is incorrect." 
       }
+    }, function(response){
+      $scope.errorMessage = "This page could not load."
+    
+    })
+    
+  }
+
+   $scope.getMonthlyFromDataBase = function() {
+    var url = 'http://localhost:8080/user/' + $scope.userLogin.username;
+    $http.get(url)
+    
+    .then(function(response) {
+      budgetService.setMonthlyNet(response.data);
+      console.log("MonthlyNet from Database: " + response.data);
     }, function(response){
       $scope.errorMessage = "This page could not load."
     
@@ -136,7 +151,9 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 })
 
-.controller('editAccountCtrl', function($scope,$state,budgetService){
+.controller('editAccountCtrl', function($scope,$http,$state,budgetService, userService){
+  $scope.user = userService.getUser(); 
+
   $scope.post = {
     "paycheck": "",
     "occurrence": "",
@@ -163,15 +180,44 @@ var options = {timeout: 10000, enableHighAccuracy: true};
       
      }
 
-        $scope.callToAddBudgetInfo= function() {
-        budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurrence);
+ 
+
+ $scope.callToAddBudgetInfo= function() {
+
+    budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurrence);
+    $scope.monthlyNet = budgetService.getMonthlyNet(); 
+    console.log("monthlyNet:" + $scope.monthlyNet);
+
+    var url = 'http://localhost:8080/user/' + $scope.user.username;
+    $http.post(url, $scope.monthlyNet)
+    
+    .then(function(response) {
+      console.log(response);
+    }, function(response){
+      $scope.errorMessage = "This page could not load."
+    
+    })
         clearPost();
         $scope.toOutcome(); 
         
      }
 
+
+
      $scope.callToAddExpense= function() {
        budgetService.addExpense($scope.expense.cost);
+               budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurrence);
+    
+    var url = 'http://localhost:8080/expense/' + $scope.user.username;
+    
+    $http.post(url, $scope.expense)
+    
+    .then(function(response) {
+      console.log($scope.expense.name + ":" + $scope.expense.cost)
+    }, function(response){
+      $scope.errorMessage = "This page could not load."
+    
+    })
        clearExpense();
      }
 
@@ -191,13 +237,14 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 })
 
-.controller('newScrewUpCtrl', function($scope, $state, $http, budgetService){
+.controller('newScrewUpCtrl', function($scope, $state, $http,userService, budgetService){
 
    $scope.user = {
       "username": "",
       "password": ""
       
     }
+  userService.setUser($scope.user);
   
   $scope.message = "",
  
@@ -228,8 +275,10 @@ var options = {timeout: 10000, enableHighAccuracy: true};
   
 })
 
-.controller('OutcomeCtrl', function($scope,$state, budgetService){
+.controller('OutcomeCtrl', function($scope,$state, budgetService,userService){
 // var outcomeVM = this; 
+ console.log("I am the outcome");
+ console.log("Outcome says Monthly Net is: " + budgetService.getMonthlyNet());
 
  $scope.billtotal = budgetService.getBillTotal(); 
  $scope.billgoal = budgetService.getBillGoal();
