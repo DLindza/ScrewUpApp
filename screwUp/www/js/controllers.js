@@ -16,9 +16,9 @@ angular.module('screwUpApp.controllers', ['screwUpApp.services'])
     
     .then(function(response) {
       userService.setUser(response.data);
-      console.log(response.data.username);
-      console.log($scope.userLogin.username);
-      $scope.getMonthlyFromDataBase();
+      console.log("Database User: " + response.data.username);
+      console.log("Ionic User: " + $scope.userLogin.username);
+
       if(response.data.username === $scope.userLogin.username && response.data.password === $scope.userLogin.password){
          $state.transitionTo("budget-outcome");  
       } else {
@@ -31,18 +31,7 @@ angular.module('screwUpApp.controllers', ['screwUpApp.services'])
     
   }
 
-   $scope.getMonthlyFromDataBase = function() {
-    var url = 'http://localhost:8080/user/' + $scope.userLogin.username;
-    $http.get(url)
-    
-    .then(function(response) {
-      budgetService.setMonthlyNet(response.data);
-      console.log("MonthlyNet from Database: " + response.data);
-    }, function(response){
-      $scope.errorMessage = "This page could not load."
-    
-    })
-  }
+   
    
    $scope.newScrewUp = function() {
      $state.transitionTo("newScrewUp");
@@ -275,10 +264,28 @@ var options = {timeout: 10000, enableHighAccuracy: true};
   
 })
 
-.controller('OutcomeCtrl', function($scope,$state, budgetService,userService){
+.controller('OutcomeCtrl', function($scope,$state, $http,budgetService,userService){
 // var outcomeVM = this; 
+$scope.user = userService.getUser();
+
+   $scope.getMonthlyFromDataBase = function() {
+    var url = 'http://localhost:8080/user/' + $scope.user.username;
+    $http.get(url)
+    
+    .then(function(response) {
+      budgetService.setMonthlyNet(response.data);
+      console.log("MonthlyNet from Database: " + response.data);
+      
+    }, function(response){
+      $scope.errorMessage = "This page could not load."
+    
+    })
+  }();
+ 
  console.log("I am the outcome");
  console.log("Outcome says Monthly Net is: " + budgetService.getMonthlyNet());
+
+
 
  $scope.billtotal = budgetService.getBillTotal(); 
  $scope.billgoal = budgetService.getBillGoal();
