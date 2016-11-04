@@ -94,16 +94,12 @@ angular.module('screwUpApp.services', [])
     fillBudget();
   };
 
-  var setMonthlyNet = function(monthlyNet) {
-    console.log("I made it!!");
-    
-    monthlyNet = parseInt(monthlyNet); 
-    console.log("I set Monthlynet to : " + monthlyNet);
+  var setMonthlyNet = function(dbmonthlyNet) {
+    monthlyNet = parseInt(dbmonthlyNet); 
     fillBudget();
   }
 
   var fillBudget = function() {
-    console.log("I filled the budget!");
     findBillGoal();
     findBillPercent();
     findMonthlyRemainder();

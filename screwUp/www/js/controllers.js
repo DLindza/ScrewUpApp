@@ -266,33 +266,35 @@ var options = {timeout: 10000, enableHighAccuracy: true};
 
 .controller('OutcomeCtrl', function($scope,$state, $http,budgetService,userService){
 // var outcomeVM = this; 
-$scope.user = userService.getUser();
+    $scope.user = userService.getUser();
+    console.log("Outside function:" + $scope.user.username);
 
    $scope.getMonthlyFromDataBase = function() {
-    var url = 'http://localhost:8080/user/' + $scope.user.username;
-    $http.get(url)
+     
+     console.log("Outcome User: " + $scope.user.username); 
+     var url = 'http://localhost:8080/user/' + $scope.user.username;
+     $http.get(url)
     
     .then(function(response) {
-      budgetService.setMonthlyNet(response.data);
+      console.log("I am the outcome");
       console.log("MonthlyNet from Database: " + response.data);
-      
+      budgetService.setMonthlyNet(response.data);
+      $scope.billtotal = budgetService.getBillTotal(); 
+      $scope.billgoal = budgetService.getBillGoal();
+      $scope.billpercent = budgetService.getBillPercent();
+      $scope.monthlyremainder = budgetService.getMonthlyRemainder();
+      $scope.funmoney = budgetService.getFunMoney();
+      $scope.nestegg = budgetService.getNestEgg();
+      console.log("Outcome says Monthly Net is: " + budgetService.getMonthlyNet());
     }, function(response){
       $scope.errorMessage = "This page could not load."
     
     })
   }();
  
- console.log("I am the outcome");
- console.log("Outcome says Monthly Net is: " + budgetService.getMonthlyNet());
+ console.log()
 
 
-
- $scope.billtotal = budgetService.getBillTotal(); 
- $scope.billgoal = budgetService.getBillGoal();
- $scope.billpercent = budgetService.getBillPercent();
- $scope.monthlyremainder = budgetService.getMonthlyRemainder();
- $scope.funmoney = budgetService.getFunMoney();
- $scope.nestegg = budgetService.getNestEgg();
 
  $scope.toHome = function() {
        console.log("show me the money!");
