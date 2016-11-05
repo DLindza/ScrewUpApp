@@ -148,20 +148,14 @@ var options = {timeout: 10000, enableHighAccuracy: true};
     "occurrence": "",
   }
 
-   $scope.expense = {
-      "name": "",
-      "cost": ""
-    }
+ 
 
     var clearPost = function() {
       $scope.post.paycheck ="";
       $scope.post.occurrence = "";
     }
 
-    var clearExpense = function() {
-      $scope.expense.name = "";
-      $scope.expense.cost = "";
-    }
+
 
        $scope.toOutcome = function() {
        console.log("show me the money!");
@@ -191,23 +185,34 @@ var options = {timeout: 10000, enableHighAccuracy: true};
         
      }
 
+  $scope.expense = {
+      "name": "",
+      "cost": ""
+    }
 
+   var clearExpense = function() {
+      $scope.expense.name = "";
+      $scope.expense.cost = "";
+    }
 
      $scope.callToAddExpense= function() {
-       budgetService.addExpense($scope.expense.cost);
-               budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurrence);
-    
+
+    budgetService.addExpense($scope.expense);
+    console.log("posted expense:" + $scope.expense.name + $scope.expense.cost);
+
     var url = 'http://localhost:8080/expense/' + $scope.user.username;
-    
     $http.post(url, $scope.expense)
-    
+
     .then(function(response) {
-      console.log($scope.expense.name + ":" + $scope.expense.cost)
+      console.log($scope.expense);
+      console.log(response.data);
+      console.log(response.data.name + ":" + response.data.cost);
+      clearExpense();
     }, function(response){
       $scope.errorMessage = "This page could not load."
     
     })
-       clearExpense();
+       
      }
 
 })
@@ -285,6 +290,7 @@ var options = {timeout: 10000, enableHighAccuracy: true};
       $scope.monthlyremainder = budgetService.getMonthlyRemainder();
       $scope.funmoney = budgetService.getFunMoney();
       $scope.nestegg = budgetService.getNestEgg();
+      $scope.expenses = budgetService.getExpenses();
       console.log("Outcome says Monthly Net is: " + budgetService.getMonthlyNet());
     }, function(response){
       $scope.errorMessage = "This page could not load."

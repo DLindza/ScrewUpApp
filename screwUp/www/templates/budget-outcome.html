@@ -25,6 +25,19 @@
   </div>
 </div>
 
+<div class="card">
+  <table border="1">
+    <tr>
+    <th>Expense</th>
+    <th>Cost</th>
+    </tr>
+    <tr>
+    <td ng-repeat="expense in expenses track by $index">{{expense.name}}</td>
+    <td>{{expense.cost}}</td>
+    </tr>
+  </table>
+</div>
+
   <div class="item item-input-inset">
       <button class="button button-block button-calm" on-tap="toHome()">
       Go Home

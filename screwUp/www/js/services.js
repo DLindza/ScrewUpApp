@@ -112,9 +112,15 @@ angular.module('screwUpApp.services', [])
 
   }
 
-  var addExpense = function(cost) {
-    billtotal += parseInt(cost); 
+  var addExpense = function(expense) {
+    billtotal += parseInt(expense.cost); 
+    expenses.push(expense);
+    console.log("Bill Total: " + billtotal);
   };
+
+  var getExpenses = function(){
+    return expenses; 
+  }
   
   var findBillGoal = function() {
     billgoal = monthlyNet/2; 
@@ -172,11 +178,16 @@ angular.module('screwUpApp.services', [])
     findNestEgg : findNestEgg,
     getNestEgg: getNestEgg,
     findBillPercent : findBillPercent,
-    getBillPercent : getBillPercent
+    getBillPercent : getBillPercent,
+    addExpense : addExpense,
+    getExpenses : getExpenses
   };
 
  return service;
 })
+
+
+
 
 .service('calculatorService', function(){
   var age;
