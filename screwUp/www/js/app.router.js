@@ -41,7 +41,7 @@ angular
     views: {
       'tab-adviser': {
         templateUrl: 'templates/tab-adviser.html',
-        controller: 'AdviserCtrl'
+        controller: 'AdviserCtrl as adviserVM'
       }
     }
   })
