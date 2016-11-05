@@ -5,7 +5,7 @@
         .module('screwUpApp')
         .controller('AdviserCtrl', AdviserCtrl);
 
-    AdviserCtrl.$inject = ['$state, $cordovaGeolocation'];
+    AdviserCtrl.$inject = ['$state', '$cordovaGeolocation'];
 
     function AdviserCtrl($state, $cordovaGeolocation) {
             var adviserVM = this;
@@ -22,7 +22,7 @@
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
 
-                adviserVM.map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                adviserVM.map = new google.maps.Map(document.getElementById("adviserVM.map"), mapOptions);
 
                 //wait until the map is loaded
                 google.maps.event.addListenerOnce(adviserVM.map, 'idle', function () {

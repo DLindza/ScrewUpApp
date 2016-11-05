@@ -13,7 +13,7 @@ angular
 .state('login', {
   url: '/login',
   templateUrl: 'templates/login.html',
-  controller: 'loginCtrl'
+  controller: 'loginCtrl as loginVM'
 })
 
 .state('newScrewUp', {
@@ -25,7 +25,7 @@ angular
 .state('editAccount', {
   url: '/editAccount',
   templateUrl: 'templates/editAccount.html',
-  controller: 'editAccountCtrl'
+  controller: 'editAccountCtrl as editVM'
 })
 
 .state('tab', {
@@ -40,7 +40,7 @@ angular
     url: '/adviser',
     views: {
       'tab-adviser': {
-        templateUrl: 'templates/tab-adviser.html',
+        templateUrl: 'templates/tab-adviser.map.html',
         controller: 'AdviserCtrl as adviserVM'
       }
     }

@@ -4,27 +4,27 @@
              
   
          <label class="item item-input">
-                <input type="text" placeholder="Enter current paycheck amt"  ng-model="post.paycheck">
+                <input type="text" placeholder="Enter current paycheck amt"  ng-model="editVM.post.paycheck">
             </label>
             <label class="item item-input" >
-                <input type="text" placeholder="How many times in 4 weeks do you get paid?" ng-model="post.occurrence">
+                <input type="text" placeholder="How many times in 4 weeks do you get paid?" ng-model="editVM.post.occurrence">
             </label>
         <label class="item">
                 Add All Non-Negotiable Monthly Expenses Here (i.e. rent)
              </label>
              <label class="item item-input" >
-                <input type="text" placeholder="Enter Name of Expense" ng-model="expense.name">
+                <input type="text" placeholder="Enter Name of Expense" ng-model="editVM.expense.name">
             </label>
             <label class="item item-input" >
-                <input type="text" placeholder="Enter amt of Expense" ng-model="expense.cost">
+                <input type="text" placeholder="Enter amt of Expense" ng-model="editVM.expense.cost">
             </label>
               <div class="item item-input-inset">
-                    <button class="button button-block button-calm" on-tap="callToAddExpense()">
+                    <button class="button button-block button-calm" on-tap="editVM.callToAddExpense()">
                         Add Monthly Expense
                     </button>
              </div>
                <div class="item item-input-inset">
-                    <button class="button button-block button-calm" on-tap="callToAddBudgetInfo()">
+                    <button class="button button-block button-calm" on-tap="editVM.callToAddBudgetInfo()">
                        Submit
                     </button>
              </div>

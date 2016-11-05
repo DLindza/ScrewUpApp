@@ -1,43 +1,5 @@
 angular.module('screwUpApp.controllers', ['screwUpApp.services'])
 
-.controller('loginCtrl', function($scope,$http,$state,userService, budgetService) {
-  var password = '';
-  $scope.errorMessage = '';
-
-  $scope.userLogin = {
-    "username": '',
-    "password": '',
-
-  }
-
-  $scope.login = function() {
-    var url = 'http://localhost:8080/findByUsername/' + $scope.userLogin.username;
-    $http.get(url)
-    
-    .then(function(response) {
-      userService.setUser(response.data);
-      console.log("Database User: " + response.data.username);
-      console.log("Ionic User: " + $scope.userLogin.username);
-
-      if(response.data.username === $scope.userLogin.username && response.data.password === $scope.userLogin.password){
-         $state.transitionTo("budget-outcome");  
-      } else {
-          $scope.errorMessage = "Username or Password is incorrect." 
-      }
-    }, function(response){
-      $scope.errorMessage = "This page could not load."
-    
-    })
-    
-  }
-
-   
-   
-   $scope.newScrewUp = function() {
-     $state.transitionTo("newScrewUp");
-   }
-
-})
 
 
 
@@ -45,82 +7,8 @@ angular.module('screwUpApp.controllers', ['screwUpApp.services'])
 
 
 
-.controller('editAccountCtrl', function($scope,$http,$state,budgetService, userService){
-  $scope.user = userService.getUser(); 
-
-  $scope.post = {
-    "paycheck": "",
-    "occurrence": "",
-  }
-
- 
-
-    var clearPost = function() {
-      $scope.post.paycheck ="";
-      $scope.post.occurrence = "";
-    }
 
 
-
-       $scope.toOutcome = function() {
-       console.log("show me the money!");
-       $state.transitionTo('budget-outcome');
-      
-     }
-
- 
-
- $scope.callToAddBudgetInfo= function() {
-
-    budgetService.findMonthlyNet($scope.post.paycheck, $scope.post.occurrence);
-    $scope.monthlyNet = budgetService.getMonthlyNet(); 
-    console.log("monthlyNet:" + $scope.monthlyNet);
-
-    var url = 'http://localhost:8080/user/' + $scope.user.username;
-    $http.post(url, $scope.monthlyNet)
-    
-    .then(function(response) {
-      console.log(response);
-    }, function(response){
-      $scope.errorMessage = "This page could not load."
-    
-    })
-        clearPost();
-        $scope.toOutcome(); 
-        
-     }
-
-  $scope.expense = {
-      "name": "",
-      "cost": ""
-    }
-
-   var clearExpense = function() {
-      $scope.expense.name = "";
-      $scope.expense.cost = "";
-    }
-
-     $scope.callToAddExpense= function() {
-
-    budgetService.addExpense($scope.expense);
-    console.log("posted expense:" + $scope.expense.name + $scope.expense.cost);
-
-    var url = 'http://localhost:8080/expense/' + $scope.user.username;
-    $http.post(url, $scope.expense)
-
-    .then(function(response) {
-      console.log($scope.expense);
-      console.log(response.data);
-      console.log(response.data.name + ":" + response.data.cost);
-      clearExpense();
-    }, function(response){
-      $scope.errorMessage = "This page could not load."
-    
-    })
-       
-     }
-
-})
 
 
 
