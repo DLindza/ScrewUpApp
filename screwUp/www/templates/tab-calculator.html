@@ -14,22 +14,22 @@
       <div class="list">
         <div class="item item-input-inset">
           <label class="item-input-wrapper">
-            <input type="text" placeholder="enter your age" ng-model="post.age"/>
+            <input type="text" placeholder="enter your age" ng-model="calcVM.post.age"/>
           </label>
         </div>
         <div class="item item-input-inset">
           <label class="item-input-wrapper">
-            <input type="text" placeholder="enter des. salary at 35" ng-model="post.salary"/>
+            <input type="text" placeholder="enter des. salary at 35" ng-model="calcVM.post.salary"/>
           </label>
         </div>
         <div class="item item-input-inset">
           <label class="item-input-wrapper">
             <input type="text" placeholder="retirement $$ so far"
-                   ng-model="post.retirement"/>
+                   ng-model="calcVM.post.retirement"/>
           </label>
         </div>
         <div class="item item-input-inset">
-          <button class="button button-block button-calm" on-tap="calculate()">
+          <button class="button button-block button-calm" on-tap="calcVM.calculate()">
             Find Out!
           </button>
         </div>
@@ -40,10 +40,10 @@
          <img ng-src="{{image}}" height="211" width="200" />
        </div>-->
        <div class="item item-divider">
-         {{heading}}
+         {{calcVM.heading}}
        </div>
        <div class="item item-text-wrap">
-         {{message}}
+         {{calcVM.message}}
        </div>
      </div>
 

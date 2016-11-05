@@ -40,13 +40,11 @@
     if (retirementGoal <= calcVM.post.retirement) {
       calcVM.heading = "Congrats! You're already a ScrewUp! ";
       calcVM.message = " Meaning you are doing a great job of preparing for your future! You are $" + retirementDiff + " above your goal! Check out Become a financial genius for more information.";
-      calcVM.image = "../img/party-clip-art-party-clip-art-free-downloads.jpg";
-
+      
     } else {
       calcVM.heading = "You are not a ScrewUp ... yet!";
       calcVM.message = "  There is still hope for you! You are currently $" + retirementDiff + " away from the goal. Did you know by age 35 you should have a year of your desired salary saved for retirement? It IS possible!!! Money actually can grow on trees - even if you don't think you have " +
         "money to spare!! Check out 'Be a Financial Genius' for more details.";
-      calcVM.image = "../img/notthereyet.jpg";
     }
   };
 
