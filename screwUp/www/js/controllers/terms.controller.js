@@ -11,7 +11,12 @@
            var termsVM = this;
 
            termsVM.terms = getTerms.terms;
+           console.log(termsVM.terms);
        }
 
 
 })();
+
+
+
+

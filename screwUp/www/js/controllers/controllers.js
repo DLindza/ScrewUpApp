@@ -1,14 +1,6 @@
 angular.module('screwUpApp.controllers', ['screwUpApp.services'])
 
 
-
-
-.controller('ModalCtrl', function($scope, $stateParams,getTerms) {
-  $scope.term = getTerms.terms[$stateParams.termid-1];
-
-
-})
-
 .controller('newScrewUpCtrl', function($scope, $state, $http,userService, budgetService){
 
    $scope.user = {

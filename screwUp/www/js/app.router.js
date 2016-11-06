@@ -59,7 +59,7 @@ angular
     views: {
       'tab-terms': {
         templateUrl: 'templates/modal.html',
-        controller: 'ModalCtrl'
+        controller: 'ModalCtrl as modalVM'
       }
     }
   })

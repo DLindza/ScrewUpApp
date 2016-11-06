@@ -1,7 +1,7 @@
 <ion-view view-title="ScrewUp Your Knowledge">
     <ion-content>
       <ion-list >
-        <ion-item ng-repeat="term in termsVM.terms" href="#/tab/modal/{{termsVM.term.id}}">
+        <ion-item ng-repeat="term in termsVM.terms" href="#/tab/modal/{{term.id}}">
           <div>{{term.name}}</div>
         </ion-item>
       </ion-list>
