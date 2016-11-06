@@ -84,7 +84,7 @@ angular
     .state('budget-outcome', {
       url: '/budget-outcome',
       templateUrl: 'templates/budget-outcome.html',
-      controller: 'OutcomeCtrl'
+      controller: 'OutcomeCtrl as outcomeVM'
         
       
     })

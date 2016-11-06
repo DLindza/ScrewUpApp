@@ -4,24 +4,24 @@
 
 <div class="card">
   <div class="item item-text-wrap">
-    You're Currently Spending : ${{billtotal}} ...
+    You're Currently Spending : ${{outcomeVM.billtotal}} ...
 
-    You're goal should be able to live on 50% or {{billgoal}}.
+    You're goal should be able to live on 50% or {{outcomeVM.billgoal}}.
   </div>
 </div>
 
 <div class="card">
   <div class="item item-text-wrap">
-     You have ${{monthlyremainder}} left for the month.
+     You have ${{outcomeVM.monthlyremainder}} left for the month.
 
-     Your goal should be to use 20% or ${{nestegg}} toward debt reduction or building a nest egg.
+     Your goal should be to use 20% or ${{outcomeVM.nestegg}} toward debt reduction or building a nest egg.
 
   </div>
 </div>
 
 <div class="card">
   <div class="item item-text-wrap">
-     The other 30%  -- ${{funmoney}} - is yours to spend as you wish! Live it up or pay your future self and contribute remainders towards a RothIRA!
+     The other 30%  -- ${{outcomeVM.funmoney}} - is yours to spend as you wish! Live it up or pay your future self and contribute remainders towards a RothIRA!
   </div>
 </div>
 
@@ -32,14 +32,14 @@
     <th>Cost</th>
     </tr>
     <tr>
-    <td ng-repeat="expense in expenses track by $index">{{expense.name}}</td>
-    <td>{{expense.cost}}</td>
+    <td ng-repeat="expense in expenses track by $index">{{outcomeVM.expense.name}}</td>
+    <td>{{outcomeVM.expense.cost}}</td>
     </tr>
   </table>
 </div>
 
   <div class="item item-input-inset">
-      <button class="button button-block button-calm" on-tap="toHome()">
+      <button class="button button-block button-calm" on-tap="outcomeVM.toHome()">
       Go Home
       </button>
   </div>
