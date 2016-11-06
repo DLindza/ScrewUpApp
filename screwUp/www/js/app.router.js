@@ -68,7 +68,7 @@ angular
       views: {
         'tab-resources': {
           templateUrl: 'templates/tab-resources.html',
-          controller: 'ResourcesCtrl'
+          controller: 'ResourcesCtrl as resourcesVM'
         }
       }
     })

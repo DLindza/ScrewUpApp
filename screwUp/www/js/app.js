@@ -11,7 +11,6 @@
  angular
    .module('screwUpApp', [
      'ionic', 
-     'screwUpApp.controllers', 
      'screwUpApp.services',
      'ngCordova',
      'calculator',
