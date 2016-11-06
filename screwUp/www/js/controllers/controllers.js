@@ -3,21 +3,6 @@ angular.module('screwUpApp.controllers', ['screwUpApp.services'])
 
 
 
-
-
-
-
-
-
-
-
-
-.controller('TermsCtrl', function($scope, $stateParams, $http, getTerms) {
-
-  $scope.terms = getTerms.terms;
-
-})
-
 .controller('ModalCtrl', function($scope, $stateParams,getTerms) {
   $scope.term = getTerms.terms[$stateParams.termid-1];
 

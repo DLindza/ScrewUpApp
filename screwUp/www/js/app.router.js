@@ -50,7 +50,7 @@ angular
     views: {
       'tab-terms': {
         templateUrl: 'templates/tab-terms.html',
-        controller: 'TermsCtrl'
+        controller: 'TermsCtrl as termsVM'
       }
     }
   })

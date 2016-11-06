@@ -45,9 +45,18 @@
            loginVM.newScrewUp = function () {
                $state.transitionTo("newScrewUp");
            }
+
+           loginVM.toHome = function () {
+           console.log("show me the money!");
+           $state.transitionTo('tab.calculator');
        }
 
-       })();
+       }
+
+       
+
+
+})();
 
 
 
