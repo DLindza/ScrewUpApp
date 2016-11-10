@@ -21,6 +21,7 @@
        
        
         outcomeVM.billtotal = outcomeVM.user.billtotal;
+        console.log(outcomeVM.billtotal); 
         outcomeVM.billgoal = outcomeVM.user.billgoal;
         outcomeVM.monthlyremainder = outcomeVM.user.monthlyremainder;
         outcomeVM.funmoney = outcomeVM.user.funmoney;

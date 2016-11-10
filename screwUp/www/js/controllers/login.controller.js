@@ -13,6 +13,8 @@
            var loginVM = this; 
            var password =  '';
 
+           userService.setUser({});
+
            loginVM.errorMessage = '';
 
            loginVM.userLogin = {
