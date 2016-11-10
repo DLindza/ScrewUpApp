@@ -1,9 +1,5 @@
 angular.module('screwUpApp.services', [])
 
-  
-
-
-
 
 .service('calculatorService', function(){
   var age;

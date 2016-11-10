@@ -27,9 +27,7 @@
 
                    .then(function (response) {
                        userService.setUser(response.data);
-                       console.log("Database User: " + response.data.username);
-                       console.log("Ionic User: " + loginVM.userLogin.username);
-
+                     
                        if (response.data.username === loginVM.userLogin.username && response.data.password === loginVM.userLogin.password) {
                            $state.transitionTo("budget-outcome");
                        } else {
