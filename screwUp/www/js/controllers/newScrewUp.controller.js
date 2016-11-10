@@ -19,6 +19,8 @@
 
         userService.setUser(userVM.user);
 
+       
+
         userVM.message = "";
 
         userVM.backToLogin = function () {

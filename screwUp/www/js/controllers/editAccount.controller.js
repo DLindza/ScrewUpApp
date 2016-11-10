@@ -13,6 +13,8 @@
 
         editVM.user = userService.getUser();
 
+
+
         editVM.toOutcome = function () {
             console.log("show me the money!");
             $state.transitionTo('budget-outcome');
@@ -29,6 +31,7 @@
             editVM.expense.cost = "";
         }
 
+        editVM.expenses = []; 
         editVM.callToAddExpense = function () {
 
             // budgetService.addExpense(editVM.expense);
@@ -41,12 +44,14 @@
                     console.log(editVM.expense);
                     console.log(response.data);
                     console.log(response.data.name + ":" + response.data.cost);
+                    editVM.expenses.push(response.data); 
+                    console.log(editVM.expenses); 
                     clearExpense();
                 }, function (response) {
                     editVM.errorMessage = "This page could not load."
 
                 })
-
+        
         }
     }
 
