@@ -31,9 +31,9 @@
     <th>Expense</th>
     <th>Cost</th>
     </tr>
-    <tr>
-    <td ng-repeat="expense in expenses track by $index">{{outcomeVM.expense.name}}</td>
-    <td>{{outcomeVM.expense.cost}}</td>
+    <tr ng-repeat="expense in outcomeVM.expenses">
+    <td >{{expense.name}}</td>
+    <td>{{expense.cost}}</td>
     </tr>
   </table>
 </div>

@@ -3,12 +3,7 @@
         <div class="list card">
              
   
-         <label class="item item-input">
-                <input type="text" placeholder="Enter current paycheck amt"  ng-model="editVM.post.paycheck">
-            </label>
-            <label class="item item-input" >
-                <input type="text" placeholder="How many times in 4 weeks do you get paid?" ng-model="editVM.post.occurrence">
-            </label>
+
         <label class="item">
                 Add All Non-Negotiable Monthly Expenses Here (i.e. rent)
              </label>
@@ -29,7 +24,18 @@
                     </button>
              </div>
 
-              
+<div class="card">
+  <table border="1">
+    <tr>
+    <th>Expense</th>
+    <th>Cost</th>
+    </tr>
+    <tr ng-repeat="expense in outcomeVM.expenses">
+    <td >{{expense.name}}</td>
+    <td>{{expense.cost}}</td>
+    </tr>
+  </table>
+</div>     
 
         </div>
     </ion-content>

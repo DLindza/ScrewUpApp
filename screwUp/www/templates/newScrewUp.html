@@ -4,14 +4,17 @@
              
             
              <label class="item item-input" >
-                <input type="text" placeholder="Create Username" ng-model="user.username">
+                <input type="text" placeholder="Create Username" ng-model="userVM.user.username">
             </label>
             <label class="item item-input" >
-                <input type="text" placeholder="Create Password" ng-model="user.password">
+                <input type="text" placeholder="Create Password" ng-model="userVM.user.password">
             </label>
-            
+             <label class="item item-input">
+                <input type="text" placeholder="Enter current monthly take home amt"  ng-model="userVM.user.monthlyNet">
+            </label>
+    
              <div class="item item-input-inset">
-                    <button class="button button-block button-calm" on-tap="toCreateAccount()">
+                    <button class="button button-block button-calm" on-tap="userVM.submitNewUser()">
                         Submit
                     </button>
              </div>

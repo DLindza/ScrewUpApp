@@ -7,9 +7,9 @@
        .module('screwUpApp')
        .controller ('loginCtrl', loginCtrl);
 
-       loginCtrl.$inject = ['$http', '$state', 'userService', 'budgetService']; 
+       loginCtrl.$inject = ['$http', '$state', 'userService']; 
 
-       function loginCtrl($http, $state, userService, budgetService){
+       function loginCtrl($http, $state, userService){
            var loginVM = this; 
            var password =  '';
 

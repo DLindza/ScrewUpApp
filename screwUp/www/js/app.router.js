@@ -19,7 +19,7 @@ angular
 .state('newScrewUp', {
   url: '/newScrewUp',
   templateUrl: 'templates/newScrewUp.html',
-  controller: 'newScrewUpCtrl'
+  controller: 'newScrewUpCtrl as userVM'
 })
 
 .state('editAccount', {
